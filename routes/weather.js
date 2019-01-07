@@ -9,8 +9,7 @@ const weatherRouter = express.Router();
 
 weatherRouter.use(bodyParser.json());
 
-weatherRouter.route('/:requestType/:latlng')
-  .get(cors(), (req, res, next) => {
+weatherRouter.get('/:requestType/:latlng', cors(), (req, res, next) => {
     rp(`https://api.darksky.net/${req.params.requestType}/${process.env.WEATHER_API_KEY}/${req.params.latlng}`)
       .then(apiRes => {
         res.send(apiRes);

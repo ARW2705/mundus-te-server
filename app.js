@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(`/${api_version}/`, indexRouter);
+// app.use(`/${api_version}/`, indexRouter);
 app.use(`/${api_version}/weather`, weatherRouter);
 app.use(`/${api_version}/satellite`, satelliteRouter);
 

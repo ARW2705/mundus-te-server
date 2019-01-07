@@ -4,6 +4,7 @@ const api_version = require('./api-version');
 
 const createError = require('http-errors');
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 const logger = require('morgan');
 const cors = require('cors');
@@ -15,6 +16,7 @@ const satelliteRouter = require('./routes/satellite');
 const app = express();
 
 app.use(cors());
+app.use(bodyParser.json());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -11,7 +11,7 @@ satelliteRouter.use(bodyParser.json());
 
 satelliteRouter.route('/*')
   .get(cors(), (req, res, next) => {
-    rp(`https://www.n2yo.com/rest/v1/satellite/${req.url}&apiKey=${process.env.SATELLITE_API_KEY}`)
+    rp(`https://api.n2yo.com/rest/v1/satellite/${req.url}&apiKey=${process.env.SATELLITE_API_KEY}`)
       .then(apiRes => {
         res.setHeader('content-type', 'application/json');
         res.send(apiRes);
